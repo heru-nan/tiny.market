@@ -9,12 +9,16 @@
     <h1>La Tiny Market</h1>
     <h3>Products</h3>
     <div id="products" class="container">
-        <div id="product" class="card">
-            <h4 class="title">some product</h4>
-            <p class="description">"Creo que he visto un lindo gatito"</p>
-            <button id="product_button" class="button">do something</button>            
-            <img class="image" src="./public/kitty.1.jpg" />
-        </div>  
+        <template>
+            <div id="product" class="card">
+                <h4 id="title" class="title">template</h4>
+                <p id="description"class="description">template</p>
+                <div>
+                    <p>Price: <span id="price">template</span></p><button id="button" class="button">template</button>                
+                </div>
+                <img class="image" src="./public/kitty.1.jpg" />
+            </div>
+        </template>
     </div>
 </div>
 </body>

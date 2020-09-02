@@ -1,33 +1,39 @@
 import "./styles.css";
 import "./card.css";
+import Products from './scripts/handle.products';
+
+const elements = [
+    {
+        title: "first element",
+        description: "aasdasda",
+        price: 5,
+        typePrice: "USD",
+    },
+    {
+        title: "first element",
+        description: "aasdasda",
+        price: 5,
+        typePrice: "USD",
+    },{
+        title: "first element",
+        description: "aasdasda",
+        price: 5,
+        typePrice: "USD",
+    }
+]
+
 
 import {cloneElement} from "./scripts/clone.product";
 
 const App = () => {
     const products = document.getElementById("products");
-    const product = document.getElementById("product");
-    const button = document.getElementById("product_button")
+    
+    const Market = new Products(elements);  
 
-    button.onclick = (e)=>{
-        const node = cloneElement(product);
-    }
+    console.log(Products.count);
 
-    const observer = new MutationObserver((mutationList, ovserver)=>{
-        mutationList.forEach((mutation) => {
-            switch(mutation.type){
-                case 'childList':
-                    let button = mutation.target.lastChild.querySelector("button");
-                    button.onclick = ()=>{
-                        const node = cloneElement(product);
-                    }
-                    break;
-                default:
-                    console.log(mutation.type);
-                    break;
-            }
-        })
-    })
-    observer.observe(products, {childList: true})
+
+    //observer.observe(products, {childList: true})
     
 }
 App();
