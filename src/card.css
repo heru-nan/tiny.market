@@ -1,0 +1,30 @@
+.card{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 270px;
+    background: #e2f0cb;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+    margin: 4px;
+}
+.card .image{
+    width: inherit;
+    object-fit: cover;
+}
+
+.card .title{
+    font-size: 27px;
+    margin-top: 2px;
+    color: #6b8b7f;
+    margin-bottom: 16px;
+}
+
+.card .description{
+    color: #8d93aa;
+    margin: 0px;
+}
+
+.card .button{
+    margin: 8px;
+}
+
