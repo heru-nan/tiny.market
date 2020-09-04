@@ -1,39 +1,34 @@
 import "./styles.css";
 import "./card.css";
-import Products from './scripts/handle.products';
+import Market from "./utils/service.products";
+import Cart from "./utils/service.cart";
 
-const elements = [
-    {
-        title: "first element",
-        description: "aasdasda",
-        price: 5,
-        typePrice: "USD",
-    },
-    {
-        title: "first element",
-        description: "aasdasda",
-        price: 5,
-        typePrice: "USD",
-    },{
-        title: "first element",
-        description: "aasdasda",
-        price: 5,
-        typePrice: "USD",
-    }
-]
+import { data } from "./data/data";
 
+const pages = ["", "cart"];
 
-import {cloneElement} from "./scripts/clone.product";
-
+// app will be:
+/*
+ **RenderOverlayNavegation
+ **RenderOnlyPresentPage
+ */
 const App = () => {
-    const products = document.getElementById("products");
-    
-    const Market = new Products(elements);  
+  if (location.href.includes(pages[1])) {
+    const marketButton = document.getElementById("market");
+    marketButton.onclick = () => {
+      location.href = `http://localhost:3000/${pages[0]}`;
+    };
+  } else {
+    const cartButton = document.getElementById("cart");
+    cartButton.onclick = () => {
+      location.href = `http://localhost:3000/${pages[1]}`;
+    };
+  }
 
-    console.log(Products.count);
+  const TinyMarket = new Market(data);
+  const TinyCart = new Cart();
 
-
-    //observer.observe(products, {childList: true})
-    
-}
+  console.log(TinyMarket.toString());
+  console.log(TinyCart.toString());
+};
 App();
