@@ -1,11 +1,8 @@
-import "./styles.css";
-import "./card.css";
-import Market from "./utils/service.products";
-import Cart from "./utils/service.cart";
+import "../public/styles.css";
+import "../public/card.css";
+import { indexPage } from "./client/index.page";
 
-import { data } from "./data/data";
-
-const pages = ["", "cart"];
+// const pages = ["/", "/cart"];
 
 // app will be:
 /*
@@ -13,22 +10,19 @@ const pages = ["", "cart"];
  **RenderOnlyPresentPage
  */
 const App = () => {
-  if (location.href.includes(pages[1])) {
-    const marketButton = document.getElementById("market");
-    marketButton.onclick = () => {
-      location.href = `http://localhost:3000/${pages[0]}`;
+  let cart;
+
+  if (!window.sessionStorage.cart) {
+    cart = {
+      id: "tiny.market",
+      items: [],
+      amount: 0,
     };
+    sessionStorage.setItem("cart", JSON.stringify(cart));
   } else {
-    const cartButton = document.getElementById("cart");
-    cartButton.onclick = () => {
-      location.href = `http://localhost:3000/${pages[1]}`;
-    };
+    cart = JSON.parse(sessionStorage.cart);
   }
 
-  const TinyMarket = new Market(data);
-  const TinyCart = new Cart();
-
-  console.log(TinyMarket.toString());
-  console.log(TinyCart.toString());
+  indexPage(cart);
 };
 App();

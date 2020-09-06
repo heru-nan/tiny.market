@@ -33,3 +33,30 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+/* vertical card */
+
+.vertical_card {
+  display: flex;
+  flex-direction: row;
+  background: #e2f0cb;
+  margin: 4px;
+  justify-content: space-between;
+}
+
+.vertical_card div {
+  text-align: left;
+  margin: 10px;
+  margin-top: 0;
+}
+
+.vertical_card div #description {
+  text-align: justify;
+}
+
+.vertical_card .image {
+  width: 150px;
+  object-fit: contain;
+  padding: 5px;
+  border-radius: 10px;
+}

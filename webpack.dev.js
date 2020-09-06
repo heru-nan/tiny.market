@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
-  entry: { index: "./src/index.js" },
+  entry: { index: "./src/index.js", cart: "./src/cart.js" },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/home/index.html",
@@ -13,7 +13,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/cart/index.html",
       inject: true,
-      chunks: ["index"],
+      chunks: ["cart"],
       filename: "cart",
     }),
   ],
