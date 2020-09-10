@@ -4,24 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny market</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav>
-        <button><a href="/">🧺Home</a></button>
+        <a href="/" class="button">🧺Home</a>
     </nav>
     <h1>La Tiny Market</h1>
-    <h2>Cart</h2>
-    <div id="cart" class="container_cart">  
-        <template>
-            <div id="product" class="vertical_card">
-                <div>
-                    <h4 id="title" class="title">Sad kitten</h4>
-                    <p id="description" class="description">Thanks for<br /> cho-cho-choosing me!</p>
-                    <p id="price">Cost aprox: <span>price</span></p>
-                    <button>ups</button>
-                </div>
-                <img class="image" src="./public/img/kitty.1.jpg" />
+    <div id="cart" class="container"> 
+        <div id="cart" class="cost">
+            <h2 class="title">Subtotal: <span id="subtotal" class="subtotal"></span></h2>
+            <div class="conditions">
+                <input type="radio" id="contract" name="conditions" value="value">
+                <label for="help">Estas de acuerdo?</label><br>
             </div>
+            <button id="pay">Terminar Pedido</button>
+            <button ><a href="/">Seguir Comprando</a></button>
+        </div>
+        <h1>Items: </h1>
+        <div id="container_items" class="container_items">
+        </div>
+        <template>
+            <div id="product" class="cart_card">
+                <div class="header__cart_card">
+                        <img class="image" src="./public/img/kitty.1.jpg" />
+                    <div>
+                        <h4 id="title" class="title">Sad kitten</h4>
+                        <p >Cost aprox: <span class="price" id="price">price</span></p>
+                        <p id="description" class="description">Thanks for<br /> cho-cho-choosing me!</p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button>Delete</button>
+                    <button>Save for later</button>
+                </div>
+            </div>
+            
         </template>
     </div>
 </div>

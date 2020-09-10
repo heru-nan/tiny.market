@@ -1,5 +1,5 @@
-import "../public/styles.css";
-import "../public/card.css";
+import "../public/cart/styles.css";
+import "../public/cart/cart.css";
 import { cartPage } from "./client/cart.page";
 
 const App = () => {

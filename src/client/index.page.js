@@ -19,7 +19,9 @@ const render = (data, cart) => {
 };
 
 const addNode = (container, product, cart) => {
-  const { title, description, price, id, image } = product;
+  let { title, description, price, id, image } = product;
+
+  title = title[0].toUpperCase() + title.slice(1);
 
   if ("content" in document.createElement("template")) {
     let template = document.querySelector("template");
@@ -31,12 +33,16 @@ const addNode = (container, product, cart) => {
     div.querySelector("#title").textContent = title;
     div.querySelector("button").textContent = "take it";
     div.querySelector("#description").textContent = description;
-    div.querySelector("#price").textContent = price;
+    div.querySelector("#price").textContent = "$ " + price;
 
     div.querySelector("button").onclick = function () {
       product.image = null;
       cart.items = [...cart.items, product];
+      cart.amount += product.price;
       window.sessionStorage.setItem("cart", JSON.stringify(cart));
+
+      this.style.visibility = "hidden";
+
       refreshNav();
     };
 
@@ -45,7 +51,7 @@ const addNode = (container, product, cart) => {
 };
 
 const refreshNav = () => {
-  document.querySelector("a").textContent = `🧺Cart ${
+  document.querySelector("#span_items").textContent = `${
     JSON.parse(sessionStorage.cart).items.length
   }`;
 };

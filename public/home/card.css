@@ -3,13 +3,14 @@
   flex-direction: column-reverse;
   align-items: center;
   width: 270px;
-  background: #e2f0cb;
+  background: #97f2f3;
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
-  margin: 4px;
+  margin: 8px;
 }
 .card .image {
   width: inherit;
   object-fit: cover;
+  padding: 4px;
 }
 
 .card .title {
@@ -24,10 +25,6 @@
   margin: 0px;
 }
 
-button {
-  margin: 8px;
-}
-
 .card div {
   display: flex;
   justify-content: center;
@@ -35,28 +32,3 @@ button {
 }
 
 /* vertical card */
-
-.vertical_card {
-  display: flex;
-  flex-direction: row;
-  background: #e2f0cb;
-  margin: 4px;
-  justify-content: space-between;
-}
-
-.vertical_card div {
-  text-align: left;
-  margin: 10px;
-  margin-top: 0;
-}
-
-.vertical_card div #description {
-  text-align: justify;
-}
-
-.vertical_card .image {
-  width: 150px;
-  object-fit: contain;
-  padding: 5px;
-  border-radius: 10px;
-}

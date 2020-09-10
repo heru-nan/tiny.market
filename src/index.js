@@ -1,5 +1,5 @@
-import "../public/styles.css";
-import "../public/card.css";
+import "../public/home/styles.css";
+import "../public/home/card.css";
 import { indexPage } from "./client/index.page";
 
 // const pages = ["/", "/cart"];

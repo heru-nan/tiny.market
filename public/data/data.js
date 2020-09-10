@@ -3,7 +3,7 @@ export const data = [
     id: "product 1",
     title: "near kitty cat",
     description: "Creo que he visto un lindo gatito",
-    price: 5,
+    price: 1,
     image: `/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcU
     FhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgo
     KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAEAAQADASIA
@@ -323,8 +323,8 @@ export const data = [
   {
     id: "product 2",
     title: "fly kitty cat",
-    description: "Creo que he visto un lindo gatito",
-    price: 5,
+    description: "The famous flying cat",
+    price: 10,
     image: `/9j/4AAQSkZJRgABAQAASABIAAD/4QBqRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAA
     BJKGAAcAAAARAAAAUKABAAMAAAABAAEAAKACAAQAAAABAAABAKADAAQAAAABAAABAAAAAABBU0NJ
     SQAAADEuMy4wLTIwSQD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDU
@@ -638,8 +638,8 @@ export const data = [
   {
     id: "product 3",
     title: "blond kitty cat",
-    description: "Creo que he visto un lindo gatito",
-    price: 5,
+    description: "singer-songwriter at night",
+    price: 16,
     image: `/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcU
     FhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgo
     KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAEAAQADASIA
@@ -764,8 +764,8 @@ export const data = [
   {
     id: "product 4",
     title: "godsh kitty cat",
-    description: "Creo que he visto un lindo gatito",
-    price: 5,
+    description: "Es malhumorado",
+    price: 4,
     image: `iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAACXBIWXMAAC4jAAAuIwF4pT92AAAA
     B3RJTUUH4wEZECEw+hV0FgABEKVJREFUeNrEvduWI7mOLAgDSJfiklnXvXt65jvmW+aL5m/7nNNd
     lRUhOQnYPIDucl0jMmv3mVi5tDIjJRedToKAwWDA//v//N8FSlUAFBFRWX5AIURECAElhBIkRIIh
@@ -1997,8 +1997,8 @@ export const data = [
   {
     id: "product 5",
     title: "cute kitty cat",
-    description: "Creo que he visto un lindo gatito",
-    price: 5,
+    description: "is lazy",
+    price: 5.6,
     image: `/9j/4AAQSkZJRgABAQEAYABgAAD/4gJASUNDX1BST0ZJTEUAAQEAAAIwQURCRQIQAABtbnRyUkdC
     IFhZWiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAA
     AADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApj
@@ -2506,8 +2506,8 @@ export const data = [
   {
     id: "product 6",
     title: "black kitty cat",
-    description: "Creo que he visto un lindo gatito",
-    price: 5,
+    description: "Matilda's cat",
+    price: 2.4,
     image: `/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcU
     FhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgo
     KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCAEAAQADASIA
