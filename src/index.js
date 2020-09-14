@@ -1,8 +1,12 @@
+// imports
+import Storage from "./Storage";
+import Products from "./Products";
 // variables
 let containerProducts = document.querySelector("#products");
 let cartItems = document.querySelector("#span_items");
 let modal = document.querySelector("#modal");
 let containerModal = document.querySelector("#modal_container");
+let actionsButtons = document.querySelector("#actions");
 let buttonsDOM = [];
 
 modal.onclick = function (e) {
@@ -13,14 +17,6 @@ containerModal.onclick = function () {};
 
 // cart
 let cart = [];
-
-// class getting products
-class Products {
-  async getProducts() {
-    let data = await fetch("/public/data/data.json");
-    return await data.json();
-  }
-}
 
 // class display products
 class UI {
@@ -94,10 +90,11 @@ class UI {
       tempTotal.toFixed(2)
     )}<span></p>
     <div id="actions">
-    <button>Cart</button>
-    <button>Proceed to checkout</button>
+    <a href="/cart" class="button">Cart</a>
+    <a href="/pay" class="button">Proceed to checkout</a>
     </div>
   `;
+
     cartItems.innerHTML = itemsTotal;
     modal.classList.add("open");
   }
@@ -109,30 +106,6 @@ class UI {
 }
 
 // local storage class
-class Storage {
-  static saveProducts(products) {
-    localStorage.setItem("products", JSON.stringify(products.items));
-  }
-
-  static getProduct(id) {
-    let products = JSON.parse(localStorage.getItem("products"));
-    return products.find((e) => e.id === id);
-  }
-
-  static addProduct(product) {
-    cart = [...cart, product];
-  }
-
-  static saveCart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
-  static getCart() {
-    return localStorage.getItem("cart")
-      ? JSON.parse(localStorage.getItem("cart"))
-      : [];
-  }
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();

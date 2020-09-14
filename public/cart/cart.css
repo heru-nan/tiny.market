@@ -9,6 +9,8 @@
 
 .container_items {
   margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cost {
