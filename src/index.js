@@ -1,28 +1,150 @@
-import "../public/home/styles.css";
-import "../public/home/card.css";
-import { indexPage } from "./client/index.page";
+// variables
+let containerProducts = document.querySelector("#products");
+let cartItems = document.querySelector("#span_items");
+let modal = document.querySelector("#modal");
+let containerModal = document.querySelector("#modal_container");
+let buttonsDOM = [];
 
-// const pages = ["/", "/cart"];
+modal.onclick = function (e) {
+  if (e.target.id === "modal") modal.classList.remove("open");
+};
 
-// app will be:
-/*
- **RenderOverlayNavegation
- **RenderOnlyPresentPage
- */
-const App = () => {
-  let cart;
+containerModal.onclick = function () {};
 
-  if (!window.sessionStorage.cart) {
-    cart = {
-      id: "tiny.market",
-      items: [],
-      amount: 0,
-    };
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-  } else {
-    cart = JSON.parse(sessionStorage.cart);
+// cart
+let cart = [];
+
+// class getting products
+class Products {
+  async getProducts() {
+    let data = await fetch("/public/data/data.json");
+    return await data.json();
+  }
+}
+
+// class display products
+class UI {
+  displayProducts(products) {
+    let result = "";
+    let { items } = products;
+    items.forEach((product) => {
+      let { id, title, description, price, image } = product;
+      title = title[0].toUpperCase() + title.slice(1);
+      description = description[0].toUpperCase() + description.slice(1);
+      result += `
+      <div id="${id}" class="card">
+                <h4 id="title" class="title">${title}</h4>
+                <p id="description"class="description">${description}</p>
+                <div>
+                    <p>Ship Cost: <span id="price">${price}</span></p><button id="product_button" data-id=${id} class="button">take it!</button>                
+                </div>
+                <img class="image" src="${image}" />
+      </div>
+      `;
+    });
+
+    containerProducts.innerHTML = result;
   }
 
-  indexPage(cart);
-};
-App();
+  getButtons() {
+    const buttons = [...document.querySelectorAll("#product_button")];
+    buttonsDOM = buttons;
+    buttons.forEach((button) => {
+      let { id } = button.dataset;
+      let inCart = cart.find((item) => item.id === id);
+
+      if (inCart) {
+        button.innerText = "In Cart";
+        button.disabled = true;
+      } else {
+        button.addEventListener("click", (event) => {
+          event.target.innerText = "In Cart";
+          event.target.disabled = true;
+          let cartItem = { ...Storage.getProduct(id), amount: 1 };
+          cart = [...cart, cartItem];
+
+          Storage.saveCart(cart);
+          // set cart values
+          let cartValues = this.setCartValue(cart);
+          this.showProduct(cartItem, cartValues);
+        });
+      }
+    });
+  }
+  setCartValue(cart) {
+    let tempTotal = 0;
+    let itemsTotal = 0;
+    cart.map((item) => {
+      tempTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+    //
+    return { itemsTotal, tempTotal };
+  }
+  showProduct(product, cartValues) {
+    let { itemsTotal, tempTotal } = cartValues;
+    containerModal.innerHTML = `
+    <h4>Product Add To Cart</h4>
+    <div>
+    <p>${product.title[0].toUpperCase() + product.title.slice(1)}</p>
+    <img src="${product.image}">
+    <p>Thank for cho cho chosing me!</p>
+    <div>
+    <p id="price">Cart Subtotal(<span>${itemsTotal} kittys</span>): <span>$${parseFloat(
+      tempTotal.toFixed(2)
+    )}<span></p>
+    <div id="actions">
+    <button>Cart</button>
+    <button>Proceed to checkout</button>
+    </div>
+  `;
+    cartItems.innerHTML = itemsTotal;
+    modal.classList.add("open");
+  }
+  setupApp() {
+    cart = Storage.getCart();
+    let values = this.setCartValue(cart);
+    cartItems.innerHTML = values.itemsTotal;
+  }
+}
+
+// local storage class
+class Storage {
+  static saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products.items));
+  }
+
+  static getProduct(id) {
+    let products = JSON.parse(localStorage.getItem("products"));
+    return products.find((e) => e.id === id);
+  }
+
+  static addProduct(product) {
+    cart = [...cart, product];
+  }
+
+  static saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  static getCart() {
+    return localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ui = new UI();
+  const products = new Products();
+  ui.setupApp();
+  products
+    .getProducts()
+    .then((data) => {
+      ui.displayProducts(data);
+      Storage.saveProducts(data);
+    })
+    .then(() => {
+      ui.getButtons();
+    });
+});

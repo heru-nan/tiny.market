@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "product_1",
+      "title": "near kitty cat",
+      "description": "Creo que he visto un lindo gatito",
+      "price": 1,
+      "image": "/public/img/kitty.1.jpg"
+    },
+    {
+      "id": "product_2",
+      "title": "fly kitty cat",
+      "description": "The famous flying cat",
+      "price": 10,
+      "image": "/public/img/kitty.2.jpg"
+    },
+    {
+      "id": "product_3",
+      "title": "blond kitty cat",
+      "description": "singer-songwriter at night",
+      "price": 16,
+      "image": "/public/img/kitty.3.jpg"
+    },
+    {
+      "id": "product_4",
+      "title": "godsh kitty cat",
+      "description": "Es malhumorado",
+      "price": 4,
+      "image": "/public/img/kitty.4.png"
+    },
+    {
+      "id": "product_5",
+      "title": "cute kitty cat",
+      "description": "is lazy",
+      "price": 5.6,
+      "image": "/public/img/kitty.5.jpg"
+    },
+    {
+      "id": "product_6",
+      "title": "black kitty cat",
+      "description": "Matilda's cat",
+      "price": 2.4,
+      "image": "/public/img/kitty.6.jpg"
+    }
+  ]
+}
