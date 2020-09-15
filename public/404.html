@@ -3,9 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UPS</title>
+    <title>Not Found</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      a {
+        padding-right: 12px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px;
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05) !important;
+        height: 48px;
+      }
+      h1 {
+        padding-left: 12px;
+        font-size: 202px;
+        margin: 0px;
+        display: inline;
+        font-weight: 600;
+        line-height: 1;
+        margin-right: 20px;
+      }
+      h2 {
+        line-height: 1;
+        margin: 0px;
+        display: inline;
+        font-size: 66px;
+        color: rgba(0, 0, 0, 0.3);
+        align-self: flex-end;
+      }
+      h3 {
+        margin: 0px;
+        padding: 0px;
+        padding-left: 12px;
+      }
+      .container {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media screen and (max-width: 600px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+        h1 {
+          font-size: 152px;
+          align-self: flex-start;
+        }
+        h2 {
+          font-size: 38px;
+          margin-left: 12px;
+          margin-right: 12px;
+        }
+      }
+      .img_container {
+        padding: 38px;
+        display: flex;
+        justify-content: center;
+      }
+      .talkdog {
+        font-size: 28px;
+      }
+    </style>
   </head>
   <body>
-    <h1>404 not found!</h1>
+    <nav>
+      <h3 class="title">La Tiny Market</h3>
+      <a href="/" class="button">🐈Home</a>
+    </nav>
+    <div class="container">
+      <h1>404</h1>
+      <h2>We couldn’t find this page.</h2>
+    </div>
+    <div class="img_container">
+      <img src="/public/img/shiba.png" />
+      <h2 class="talkdog">...did you see a cat?</h2>
+    </div>
   </body>
 </html>
