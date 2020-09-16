@@ -23,6 +23,7 @@
   position: relative;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -61,4 +62,9 @@
   padding-top: 50px;
   display: flex;
   flex-direction: column-reverse;
+}
+
+.amount {
+  font-weight: bolder;
+  padding: 10px;
 }

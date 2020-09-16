@@ -56,7 +56,9 @@ class UI {
         button.addEventListener("click", (event) => {
           event.target.innerText = "In Cart";
           event.target.disabled = true;
+
           let cartItem = { ...Storage.getProduct(id), amount: 1 };
+
           cart = [...cart, cartItem];
 
           Storage.saveCart(cart);
