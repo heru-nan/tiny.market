@@ -11,21 +11,28 @@
 </head>
 <body>
     <nav>
+        <h3 class="title">La Tiny Market</h3>
         <a href="/" class="button">🐈Home</a>
     </nav>
-    <h1>La Tiny Market</h1>
+    
     <div id="cart" class="container"> 
-        <div id="cart" class="cost">
-            <h2 class="title">Subtotal: <span id="subtotal" class="subtotal"></span></h2>
-            <div class="conditions">
-                <input type="radio" id="contract" name="conditions" value="value">
-                <label for="help">Estas de acuerdo?</label><br>
+        <div id="cart" class="resumen">
+            <h2 class="title">Resumen: </h2>
+        <div class="resumen__content">
+            <div class="resumen__content__info">
+                <p class="resumen__content__info_p"><span>Subtotal</span><span id="subtotal" class="subtotal">1</span></p>
+                <p class="resumen__content__info_p"><span>Gastos</span><span id="extra_gastos" class="gastos">2</span></p>
+                <p class="resumen__content__info_p"><span>Total</span><span id="total">3</span></p>
             </div>
-            <button id="pay"><a href="/pay">Terminar Pedido</a></button>
-            <button ><a href="/">Seguir Comprando</a></button>
+            
+            <div class="resumen__content__actions">
+                <button id="pay"><a href="/pay">Terminar Pedido</a></button>
+                <button ><a href="/">Seguir Comprando</a></button>
+            </div>
         </div>
-        <h1>Items: </h1>
-        <div id="products" class="container_items">
+        </div>
+
+        <div id="products" class="items">
         </div>
     </div>
 </div>
