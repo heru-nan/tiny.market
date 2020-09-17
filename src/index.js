@@ -1,4 +1,5 @@
 // imports
+import '../public/home/styles.css'
 import Storage from "./Storage";
 import Products from "./Products";
 // variables

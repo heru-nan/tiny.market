@@ -3,8 +3,10 @@ import Storage from "./Storage";
 import "../public/cart/cart.css";
 
 let itemButtons = [];
-let containerCart = document.querySelector("#products");
+let deleteButtons = [];
 let itemAmounts = [];
+
+let containerCart = document.querySelector("#products");
 
 let cart = [];
 
@@ -20,7 +22,7 @@ class Ui {
       title = title[0].toUpperCase() + title.slice(1);
       description = description[0].toUpperCase() + description.slice(1);
       result += `
-      <div id="product" class="item">
+      <div id=${id} class="item">
                 <div class="item__image">
                         <img class="image" src="${image}" />
                 </div>
@@ -30,9 +32,10 @@ class Ui {
                         <p >Cost aprox: <span class="price" id="price">${price}</span></p>
                         <p id="description" class="description">Thanks for<br /> cho-cho-choosing me!</p>
                   </div>
+                  <button id="item_button_delete" class="delete_button" data-id=${id}>delete</button>
                   <div class="item__content_actions">
                     <button id="item_button" data-id=${id} name="decrement" >-1</button>
-                    <span id="item_amount" data-id=${id}>${amount}</span>
+                    <span id="item_amount" class="amount" data-id=${id}>${amount}</span>
                     <button id="item_button" data-id=${id} name="increment">+1</button>
                   </div>
                 </div>  
@@ -70,10 +73,33 @@ class Ui {
     );
   }
 
+  delete(e){
+    let {id} = this.dataset;
+    let itemCart = Storage.getProduct(id);
+    console.log(cart.length)
+
+    if(confirm(`_____confirm delete: ${itemCart.title}`)){
+
+      let newCart = cart.filter(item => item.id != id);
+      console.log(newCart.length)
+
+      Storage.saveCart(newCart)
+      products.querySelector(`#${id}`).remove()
+
+      cart = newCart;
+
+    }else{
+      console.log("not delete");
+    }
+  }
+
   getButtons() {
+    deleteButtons = [...document.querySelectorAll("#item_button_delete")]
     itemButtons = [...document.querySelectorAll("#item_button")];
     itemAmounts = [...document.querySelectorAll("#item_amount")];
-    console.log(itemAmounts);
+    deleteButtons.forEach(item => {
+      item.addEventListener("click", this.delete);
+    })
     itemButtons.forEach((item) => {
       if (item.name === "increment") {
         item.addEventListener("click", this.increment);

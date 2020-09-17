@@ -28,6 +28,12 @@
   align-items: center;
 }
 
+.item__content_info > *{
+  margin: 0px;
+  padding: 4px;
+}
+
+
 .resumen {
   border: 1px solid black;
   margin: 2px;
@@ -66,5 +72,9 @@
 
 .amount {
   font-weight: bolder;
-  padding: 10px;
+  padding: 6px;
+}
+
+.delete_button{
+  margin: 4px;
 }
