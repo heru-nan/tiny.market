@@ -14,12 +14,15 @@ module.exports = {
       template: "./public/home/index.html",
       inject: true,
       chunks: ["index"],
+      favicon: "./public/favicon.ico",
     }),
     new HtmlWebpackPlugin({
       template: "./public/cart/index.html",
       inject: true,
       filename: "cart",
       chunks: ["cart"],
+      favicon: "./public/favicon.ico",
+
     }),
   ],
   module: {

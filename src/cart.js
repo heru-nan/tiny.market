@@ -7,6 +7,10 @@ let deleteButtons = [];
 let itemAmounts = [];
 
 let containerCart = document.querySelector("#products");
+let subtotalDOM = document.querySelector("#subtotal");
+let gastosDOM = document.querySelector("#extra_gastos");
+let totalDOM = document.querySelector("#total");
+
 
 let cart = [];
 
@@ -38,28 +42,53 @@ class Ui {
                     <span id="item_amount" class="amount" data-id=${id}>${amount}</span>
                     <button id="item_button" data-id=${id} name="increment">+1</button>
                   </div>
-                </div>  
+                </div>
       </div>
       `;
       // if (++cnt < totalItems) result += `<div class="bar"></div>`;
     });
     containerCart.innerHTML = result;
   }
+
+
+  static displayResumen(cart){
+    let tempTotal = 0;
+    let itemsTotal = 0;
+
+    cart.map((item) => {
+      tempTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+
+    let gastos = tempTotal ? 3: 0;
+    let total = tempTotal + gastos; // ****
+    subtotalDOM.innerHTML ="$ " + parseFloat(tempTotal.toFixed(2));
+    gastosDOM.innerHTML ="$ " + gastos;
+    totalDOM.innerHTML = "$ " + parseFloat(total.toFixed(2));
+  }
+
+
   setupApp() {
     cart = Storage.getCart();
     this.displayProducts(cart);
     this.getButtons();
+
+    Ui.displayResumen(cart);
   }
 
-  increment(e) {
-    let itemCart = cart.find((item) => item.id === this.dataset.id);
+  increment() {
+    let id = this.dataset.id;
+    let itemCart = cart.find((item) => item.id === id);
     let itemAmount = itemAmounts.find(
-      (item) => item.dataset.id === this.dataset.id
+      (item) => item.dataset.id === id
     );
     itemAmount.innerHTML = ++itemCart.amount;
     Storage.saveCart(
       cart.map((item) => (item.id === itemCart.id ? itemCart : item))
     );
+
+    Ui.displayResumen(cart);
+
   }
 
   decrement(e) {
@@ -71,17 +100,20 @@ class Ui {
     Storage.saveCart(
       cart.map((item) => (item.id === itemCart.id ? itemCart : item))
     );
+
+    Ui.displayResumen(cart);
+
   }
+
+ 
 
   delete(e){
     let {id} = this.dataset;
     let itemCart = Storage.getProduct(id);
-    console.log(cart.length)
 
     if(confirm(`_____confirm delete: ${itemCart.title}`)){
 
       let newCart = cart.filter(item => item.id != id);
-      console.log(newCart.length)
 
       Storage.saveCart(newCart)
       products.querySelector(`#${id}`).remove()
@@ -91,6 +123,9 @@ class Ui {
     }else{
       console.log("not delete");
     }
+
+    Ui.displayResumen(cart);
+
   }
 
   getButtons() {
