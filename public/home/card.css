@@ -31,4 +31,13 @@
   align-items: center;
 }
 
+.card div p {
+  font-size: large;
+  line-height: 16px;
+}
+#price {
+  font-weight: bold;
+
+  color: #35443e;
+}
 /* vertical card */

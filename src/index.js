@@ -1,5 +1,7 @@
 // imports
-import '../public/home/styles.css'
+// import "../public/home/styles.css";
+// import "../public/home/cardModal.css";
+// import "../public/home/card.css";
 import Storage from "./Storage";
 import Products from "./Products";
 // variables
@@ -33,7 +35,7 @@ class UI {
                 <h4 id="title" class="title">${title}</h4>
                 <p id="description"class="description">${description}</p>
                 <div>
-                    <p>Ship Cost: <span id="price">${price}</span></p><button id="product_button" data-id=${id} class="button">take it!</button>                
+                    <p class="card_price">Ship Cost: $<span id="price">${price}</span></p><button id="product_button" data-id=${id} class="inCart">take it!</button>                
                 </div>
                 <img class="image" src="${image}" />
       </div>
@@ -89,12 +91,16 @@ class UI {
     <img src="${product.image}">
     <p>Thank for cho cho chosing me!</p>
     <div>
-    <p id="price">Cart Subtotal(<span>${itemsTotal} kittys</span>): <span>$${parseFloat(
+    <p id="price" class="price">Subtotal(<span >${itemsTotal} kittys</span>): <span class="subtotal">$${parseFloat(
       tempTotal.toFixed(2)
     )}<span></p>
     <div id="actions">
+    <button>
     <a href="/cart" class="button">Cart</a>
+    </button>
+    <button>
     <a href="/pay" class="button">Proceed to checkout</a>
+    </button>
     </div>
   `;
 
