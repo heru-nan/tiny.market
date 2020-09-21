@@ -1,7 +1,7 @@
 // imports
-// import "../public/home/styles.css";
-// import "../public/home/cardModal.css";
-// import "../public/home/card.css";
+import "../../public/home/styles.css";
+import "../../public/home/cardModal.css";
+import "../../public/home/card.css";
 import Storage from "./Storage";
 import Products from "./Products";
 // variables

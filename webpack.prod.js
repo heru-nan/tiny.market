@@ -1,13 +1,11 @@
 const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-  mode: "development",
-  entry: { index: "./src/front/index.js", cart: "./src/front/cart.js" },
-  devServer: {
-    historyApiFallback: {
-      index: "./public/404.html",
-    },
+  mode: "production",
+  entry: { index: "./src/front/index.js", cart: "./src/front/indexCart.js" },
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "build"),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -19,8 +17,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/cart/index.html",
       inject: true,
-      filename: "cart",
+      filename: "indexCart.html",
       chunks: ["cart"],
+      favicon: "./public/favicon.ico",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/404.html",
+      inject: true,
+      filename: "404.html",
       favicon: "./public/favicon.ico",
     }),
   ],
@@ -29,6 +33,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(svg|png|jpg)$/,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "images",
+        },
       },
     ],
   },
