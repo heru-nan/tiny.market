@@ -1,11 +1,13 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
 const app = express();
 
 const productsRoute = require("./routes/products");
 
 app.use("/", express.static("build"));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../build", "/index.html"));

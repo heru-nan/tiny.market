@@ -1,6 +1,6 @@
 const data = [
   {
-    id: "product 1",
+    id: "product_1",
     title: "near kitty cat",
     description: "Creo que he visto un lindo gatito",
     price: 1,
@@ -321,7 +321,7 @@ const data = [
     JZxYnDydITHRllT5Fz0G6+YMAXaBpfCbMEpJbqUAEuwTV227npn/2Q==`,
   },
   {
-    id: "product 2",
+    id: "product_2",
     title: "fly kitty cat",
     description: "The famous flying cat",
     price: 10,
@@ -636,7 +636,7 @@ const data = [
     Y9KCSOgHX60dRO46LJ5/OpOGYY+lRqTjgdeafzjdn2oBsmDBSBmpRkHiqig/TFWlzxjk0mNH/9k=`,
   },
   {
-    id: "product 3",
+    id: "product_3",
     title: "blond kitty cat",
     description: "singer-songwriter at night",
     price: 16,
@@ -762,7 +762,7 @@ const data = [
     BIiqE0fMBSv8I1HbAAmFlo0Ry/4AIFfb1KJSUlJRK/63/9k=`,
   },
   {
-    id: "product 4",
+    id: "product_4",
     title: "godsh kitty cat",
     description: "Es malhumorado",
     price: 4,
@@ -1995,7 +1995,7 @@ const data = [
     AAAAAElFTkSuQmCC`,
   },
   {
-    id: "product 5",
+    id: "product_5",
     title: "cute kitty cat",
     description: "is lazy",
     price: 5.6,
@@ -2504,7 +2504,7 @@ const data = [
     PeTqEC7y3WT9ZuHW1OcD6RORvDMLtc9Afxk+qN5cu6Ly3Cju8xyLGvGf/9k=`,
   },
   {
-    id: "product 6",
+    id: "product_6",
     title: "black kitty cat",
     description: "Matilda's cat",
     price: 2.4,
@@ -2701,13 +2701,7 @@ const data = [
 ];
 
 module.exports = {
-  getRArray: function () {
-    var arrays = [];
-    arrays[0] = "array 0";
-    arrays[1] = "array 1";
-    arrays[2] = "array 2";
-    arrays[3] = "array 3";
-    arrays[4] = "array 4";
-    return arrays[Math.floor(Math.random() * arrays.length)];
+  get: function () {
+    return data;
   },
 };

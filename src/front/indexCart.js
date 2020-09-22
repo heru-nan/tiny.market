@@ -12,7 +12,6 @@ let subtotalDOM = document.querySelector("#subtotal");
 let gastosDOM = document.querySelector("#extra_gastos");
 let totalDOM = document.querySelector("#total");
 let products = document.querySelector("#products");
-console.log(products);
 let cart = [];
 
 class Ui {
@@ -29,7 +28,8 @@ class Ui {
       result += `
       <div id=${id} class="item">
                 <div class="item__image">
-                        <img class="image" src="${image}" />
+
+                        <img class="image" src="data:image/png;base64, ${image}"  />
                 </div>
                 <div class="item__content">
 

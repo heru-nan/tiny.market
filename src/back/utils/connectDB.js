@@ -1,28 +1,22 @@
 const { MongoClient } = require("mongodb");
 
+let db = null;
+
 const client = new MongoClient(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
-
-async function run() {
-  try {
-    // Connect the client to the server
-    await client.connect();
-
-    // Establish and verify connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Instance is connected successfully to mongodb");
-    const db = client.db("tiny-market");
-    const collection = db.collection("products");
-
-    const cursor = await collection.find({});
-    let products = await cursor.toArray();
-    if (products) console.log("return json products successfully");
-    return products;
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+async function run(optional = "not specificado") {
+  if (db) {
+    console.log("connect to DB");
+    return db;
   }
+  let client = await MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  db = client.db("tiny-market");
+  console.log(`Instance(${optional}) is connected successfully to mongodb`);
+  return db;
 }
 
 module.exports = run;

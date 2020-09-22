@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
-  entry: { index: "./src/front/index.js", cart: "./src/front/cart.js" },
+  entry: { index: "./src/front/index.js", cart: "./src/front/indexCart.js" },
   devServer: {
     historyApiFallback: {
       index: "./public/404.html",
@@ -19,7 +19,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/cart/index.html",
       inject: true,
-      filename: "cart",
+      filename: "shopcart",
       chunks: ["cart"],
       favicon: "./public/favicon.ico",
     }),

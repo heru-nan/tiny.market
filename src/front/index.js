@@ -37,7 +37,7 @@ class UI {
                 <div>
                     <p class="card_price">Ship Cost: $<span id="price">${price}</span></p><button id="product_button" data-id=${id} class="inCart">take it!</button>                
                 </div>
-                <img class="image" src="${image}" />
+                <img class="image" src="data:image/png;base64, ${image}" />
       </div>
       `;
     });
@@ -88,7 +88,7 @@ class UI {
     <h4>Product Add To Cart</h4>
     <div>
     <p>${product.title[0].toUpperCase() + product.title.slice(1)}</p>
-    <img src="${product.image}">
+    <img src="data:image/png;base64, ${product.image}">
     <p>Thank for cho cho chosing me!</p>
     <div>
     <p id="price" class="price">Subtotal(<span >${itemsTotal} kittys</span>): <span class="subtotal">$${parseFloat(
@@ -96,7 +96,7 @@ class UI {
     )}<span></p>
     <div id="actions">
     <button>
-    <a href="/cart" class="button">Cart</a>
+    <a href="/shopcart" class="button">Cart</a>
     </button>
     <button>
     <a href="/pay" class="button">Proceed to checkout</a>
