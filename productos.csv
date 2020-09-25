@@ -1,0 +1,11 @@
+id;name;price;stock;description;image
+product_1;Modern Lamp;87.00;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp1_tjwz0f.jpg
+product_2;Modular Black Lamp;90.00;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp2_v9t9jw.jpg
+product_3;Casual Lamp;86.99;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp3_w1psqe.webp
+product_4;Warm Lamp;119.06;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp4_suejzu.jpg
+product_5;Crazy Lamp;99.99;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp5_enynyk.jpg
+product_6;Bulldog Lamp;120.00;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp6_v5s4bj.jpg
+product_7;Vintage Lamp;87.00;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp7_c4bkgx.jpg
+product_8;Alien Lamp;219.99;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058435/images/lamp8_mdbyyj.jpg
+product_9;Tall Lamp;199.99;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058435/images/lamp9_e9wvmv.jpg
+product_10;Shy Lamp;200.10;True;None;https://res.cloudinary.com/tiny-market/image/upload/v1601058434/images/lamp10_syyotm.webp

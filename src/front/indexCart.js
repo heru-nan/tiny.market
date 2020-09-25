@@ -22,19 +22,19 @@ class Ui {
     let cnt = 0;
     let totalItems = cart.length;
     cart.forEach((item) => {
-      let { id, title, description, price, image, amount } = item;
-      title = title[0].toUpperCase() + title.slice(1);
+      let { id, name, description, price, image, amount } = item;
+      name = name[0].toUpperCase() + name.slice(1);
       description = description[0].toUpperCase() + description.slice(1);
       result += `
       <div id=${id} class="item">
                 <div class="item__image">
 
-                        <img class="image" src="data:image/png;base64, ${image}"  />
+                        <img class="image" src="${image}"  />
                 </div>
                 <div class="item__content">
 
                   <div class="item__content_info">
-                        <h4 id="title" class="title">${title}</h4>
+                        <h4 id="name" class="name">${name}</h4>
                         <p id="description" class="description">Thanks for<br /> cho-cho-choosing me!</p>
                   </div>
                 <span class="price" id="price">$${price}</span>
@@ -106,7 +106,7 @@ class Ui {
     let { id } = this.dataset;
     let itemCart = Storage.getProduct(id);
 
-    if (confirm(`_____confirm delete: ${itemCart.title}`)) {
+    if (confirm(`_____confirm delete: ${itemCart.name}`)) {
       let newCart = cart.filter((item) => item.id != id);
 
       Storage.saveCart(newCart);

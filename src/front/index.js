@@ -27,21 +27,21 @@ class UI {
     let result = "";
     let { items } = products;
     items.forEach((product) => {
-      let { id, title, description, price, image } = product;
-      title = title[0].toUpperCase() + title.slice(1);
+      let { id, name, description, price, image } = product;
+      name = name[0].toUpperCase() + name.slice(1);
       description = description[0].toUpperCase() + description.slice(1);
       result += `
       <div id="${id}" class="card">
-                <h4 id="title" class="title">${title}</h4>
+                <h4 id="name" class="name">${name}</h4>
                 <p id="description"class="description">${description}</p>
                 <div>
                     <p class="card_price">Ship Cost: $<span id="price">${price}</span></p><button id="product_button" data-id=${id} class="inCart">take it!</button>                
                 </div>
-                <img class="image" src="data:image/png;base64, ${image}" />
+                <img class="image" src="${image}" />
       </div>
       `;
     });
-
+    console.log(result);
     containerProducts.innerHTML = result;
   }
 
@@ -87,8 +87,8 @@ class UI {
     containerModal.innerHTML = `
     <h4>Product Add To Cart</h4>
     <div>
-    <p>${product.title[0].toUpperCase() + product.title.slice(1)}</p>
-    <img src="data:image/png;base64, ${product.image}">
+    <p>${product.name[0].toUpperCase() + product.name.slice(1)}</p>
+    <img src="${product.image}">
     <p>Thank for cho cho chosing me!</p>
     <div>
     <p id="price" class="price">Subtotal(<span >${itemsTotal} kittys</span>): <span class="subtotal">$${parseFloat(

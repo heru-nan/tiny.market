@@ -9,6 +9,7 @@
 }
 .card .image {
   width: inherit;
+  min-height: 270px;
   object-fit: cover;
   padding: 4px;
 }
