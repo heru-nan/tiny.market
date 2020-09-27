@@ -41,7 +41,6 @@ class UI {
       </div>
       `;
     });
-    console.log(result);
     containerProducts.innerHTML = result;
   }
 

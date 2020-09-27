@@ -9,7 +9,7 @@
     <!-- <link href="/public/cart/cart.css" rel="stylesheet"> -->
 
 </head>
-<body>
+<body class>
     <nav>
         <h3 class="title">La Tiny Market</h3>
         <a href="/" class="button">🐈Home</a>
@@ -26,13 +26,43 @@
             </div>
             
             <div class="resumen__content__actions">
-                <button id="pay"><a href="/pay">Terminar Pedido</a></button>
+                <button id="pay">Terminar Pedido</button>
                 <button ><a href="/">Seguir Comprando</a></button>
             </div>
         </div>
         </div>
 
         <div id="products" class="items">
+        </div>
+        
+    </div>
+    <div id="modal" class="overlay">
+        <div id="modal_container" class="overlay__container">
+            <form action="">
+                <h3>Names</h3>
+                <br>
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" value="John"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname" value="Doe"><br><br>
+                <h3>Address</h3>
+                <br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city" value="Valdivia"><br>
+                <label for="street">Street:</label><br>
+                <input type="text" id="street" name="street" value="Republica"><br>
+                <label for="number">Number:</label><br>
+                <input type="number" id="number" name="number" value="33"><br><br>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+    </div>
+
+    <div id="lastModal" class="overlay">
+        <div id="modal_container" class="overlay__container">
+            <h4>Thanks You</h4>
+            <p>Your products are reserved, follow to finish: </p>
+            <a id="link" href="/">Send Whatsapp</a>           
         </div>
     </div>
 </div>

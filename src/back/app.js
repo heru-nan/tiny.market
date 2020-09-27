@@ -1,16 +1,19 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
 const cloudinary = require("cloudinary").v2;
 
 const app = express();
 
 const productsRoute = require("./routes/products");
+const payRoute = require("./routes/pay");
 
 app.use("/", express.static("build"));
 app.use(cors());
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../build", "/index.html"));
 });
@@ -41,6 +44,7 @@ app.get("/images", (req, res) => {
 });
 
 app.use("/products", productsRoute);
+app.use("/pay", payRoute);
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../../build", "/404.html"));

@@ -2,6 +2,7 @@ import Products from "./Products";
 import Storage from "./Storage";
 import "../../public/cart/cart.css";
 import "../../public/cart/styles.css";
+import "../../public/cart/modal.css";
 
 let itemButtons = [];
 let deleteButtons = [];
@@ -12,6 +13,9 @@ let subtotalDOM = document.querySelector("#subtotal");
 let gastosDOM = document.querySelector("#extra_gastos");
 let totalDOM = document.querySelector("#total");
 let products = document.querySelector("#products");
+let modal = document.querySelector("#modal");
+let lastModal = document.querySelector("#lastModal");
+let payButton = document.querySelector("#pay");
 let cart = [];
 
 class Ui {
@@ -112,13 +116,24 @@ class Ui {
       Storage.saveCart(newCart);
       if (!products) console.log("products not defined");
       products.querySelector(`#${id}`).remove();
-      console.log(products);
       cart = newCart;
     } else {
       console.log("not delete");
     }
 
     Ui.displayResumen(cart);
+  }
+
+  clean() {
+    localStorage.removeItem("cart");
+  }
+
+  showModal() {
+    modal.classList.add("open");
+  }
+
+  closeModal() {
+    modal.classList.remove("open");
   }
 
   getButtons() {
@@ -135,11 +150,43 @@ class Ui {
         item.addEventListener("click", this.decrement);
       }
     });
+
+    payButton.addEventListener("click", this.showModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target.id === "modal") {
+        this.closeModal();
+      }
+    });
+
+    let form = document.querySelector("form");
+    form.addEventListener("submit", async (e) => {
+      let url = e.preventDefault();
+      let { fname, lname, city, street, number } = form.elements;
+      let formObj = {
+        fname: fname.value,
+        lname: lname.value,
+        city: city.value,
+        street: street.value,
+        number: number.value,
+        cart,
+      };
+      let res = await Products.submitPay(formObj);
+      if (res.ok) {
+        // show success transaction
+        this.closeModal();
+        setTimeout(() => {
+          let x = (lastModal.querySelector("#link").href = res.link);
+          lastModal.classList.add("open");
+          console.log("1");
+        }, 1000);
+      }
+    });
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new Ui();
-  const products = new Products();
+  // const products = new Products();
   ui.setupApp();
 });
