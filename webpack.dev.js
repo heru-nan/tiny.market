@@ -6,7 +6,7 @@ module.exports = {
   entry: { index: "./src/front/index.js", cart: "./src/front/indexCart.js" },
   devServer: {
     historyApiFallback: {
-      index: "./public/404.html",
+      index: "./src/front/public/404.html",
     },
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -17,17 +17,17 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/home/index.html",
+      template: "./src/front/public/home/index.html",
       inject: true,
       chunks: ["index"],
-      favicon: "./public/favicon.ico",
+      favicon: "./src/front/public/favicon.ico",
     }),
     new HtmlWebpackPlugin({
-      template: "./public/cart/index.html",
+      template: "./src/front/public/cart/index.html",
       inject: true,
       filename: "shopcart",
       chunks: ["cart"],
-      favicon: "./public/favicon.ico",
+      favicon: "./src/front/public/favicon.ico",
     }),
   ],
   module: {

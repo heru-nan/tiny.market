@@ -1,10 +1,12 @@
-let host = "http://localhost:3000";
+let host = "http://localhost:8080";
 let query = "/products";
 
-// let origin = new URL(window.location.href).origin;
-// if (host != origin) {
-//   host = origin;
-// }
+let origin = new URL(window.location.href).origin;
+if (host == origin) {
+  host = "http://localhost:3000"; //DEV
+} else {
+  host = origin; //PROD
+}
 
 export default class Products {
   async getProducts() {

@@ -1,9 +1,9 @@
 import Products from "./Products";
 import Storage from "./Storage";
-import "../../public/cart/cart.css";
-import "../../public/cart/styles.css";
-import "../../public/cart/modal.css";
-import "../../public/cart/pbutton.css";
+import "./public/cart/cart.css";
+import "./public/cart/styles.css";
+import "./public/cart/modal.css";
+import "./public/cart/pbutton.css";
 
 let itemButtons = [];
 let deleteButtons = [];
