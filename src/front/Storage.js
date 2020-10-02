@@ -1,6 +1,7 @@
 export default class Storage {
   static saveProducts(products) {
     localStorage.setItem("products", JSON.stringify(products.items));
+    sessionStorage.setItem("products", JSON.stringify(products.items));
   }
 
   static getProduct(id) {

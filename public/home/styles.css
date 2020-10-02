@@ -6,8 +6,11 @@ body {
   padding: 0px;
   margin: 0px;
 }
+
 nav {
-  position: absolute;
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -59,4 +62,19 @@ footer {
 
 .inCart {
   margin-left: 8px;
+}
+
+.zoom {
+  transition: transform 0.2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.01);
+}
+
+.mark {
+  text-decoration: underline;
 }

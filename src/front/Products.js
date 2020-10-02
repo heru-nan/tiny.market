@@ -1,12 +1,17 @@
 let host = "http://localhost:3000";
 let query = "/products";
 
+// let origin = new URL(window.location.href).origin;
+// if (host != origin) {
+//   host = origin;
+// }
+
 export default class Products {
   async getProducts() {
-    // let cache = JSON.parse(localStorage.getItem("products"));
-    // if (cache && cache.length > 0) {
-    //   return { items: cache };
-    // }
+    let cache = JSON.parse(sessionStorage.getItem("products"));
+    if (cache && cache.length > 0) {
+      return { items: cache };
+    }
     let rawRes = await fetch(host + query);
     let res = await rawRes.json();
     return res.data;

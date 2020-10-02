@@ -2,6 +2,7 @@
 import "../../public/home/styles.css";
 import "../../public/home/cardModal.css";
 import "../../public/home/card.css";
+import "../../public/home/pbutton.css";
 import Storage from "./Storage";
 import Products from "./Products";
 // variables
@@ -13,7 +14,9 @@ let actionsButtons = document.querySelector("#actions");
 let buttonsDOM = [];
 
 modal.onclick = function (e) {
-  if (e.target.id === "modal") modal.classList.remove("open");
+  console.log(e.target.id);
+  if (e.target.id === "modal" || e.target.id === "close_modal")
+    modal.classList.remove("open");
 };
 
 containerModal.onclick = function () {};
@@ -35,9 +38,9 @@ class UI {
                 <h4 id="name" class="name">${name}</h4>
                 <p id="description"class="description">${description}</p>
                 <div>
-                    <p class="card_price">Ship Cost: $<span id="price">${price}</span></p><button id="product_button" data-id=${id} class="inCart">take it!</button>                
+                    <p class="card_price">Ship Cost: $<span id="price">${price}</span></p><button id="product_button" data-id=${id} class="inCart button1">Add</button>                
                 </div>
-                <img class="image" src="${image}" />
+                <img class="image zoom inCart" id="product_button" data-id=${id} src="${image}" />
       </div>
       `;
     });
@@ -84,7 +87,7 @@ class UI {
   showProduct(product, cartValues) {
     let { itemsTotal, tempTotal } = cartValues;
     containerModal.innerHTML = `
-    <h4>Product Add To Cart</h4>
+    <h4>Product Added To Cart</h4>
     <div>
     <p>${product.name[0].toUpperCase() + product.name.slice(1)}</p>
     <img src="${product.image}">
@@ -94,12 +97,10 @@ class UI {
       tempTotal.toFixed(2)
     )}<span></p>
     <div id="actions">
-    <button>
-    <a href="/shopcart" class="button">Cart</a>
-    </button>
-    <button>
-    <a href="/pay" class="button">Proceed to checkout</a>
-    </button>
+    <a href="#" class="button1" id="close_modal">
+    Shopping
+    </a>
+    <a href="/shopcart" class="button1">Go Cart</a>
     </div>
   `;
 

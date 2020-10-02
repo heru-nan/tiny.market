@@ -30,8 +30,16 @@ nav a:hover {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
+
+.delete_a {
+  text-decoration: none;
+  color: black;
+}
+
 nav {
-  position: absolute;
+  z-index: 10;
+  position: fixed;
+  background-color: #ffffff;
   top: 0;
   left: 0;
   width: 100vw;
@@ -53,4 +61,8 @@ img {
 .delete_button {
   display: block;
   text-align: center;
+}
+
+.mark:hover {
+  text-decoration: underline;
 }

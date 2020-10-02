@@ -15,9 +15,8 @@ router.post("/submit", (req, res) => {
     let wMessage = `
     Hola, mi nombre es ${fname} ${lname},\n
     Reserve estos productos: 
-    ${cart.map((e) => `${e.name}\n`)}.
-    Con un total de: $${total}.\n
-    Mi direccion de envio es: ${city}, calle: ${street} ${number}.
+    ${cart.map((e) => `${e.name}`)}.
+    Con un total de: $${total}.\nMi direccion de envio es: ${city}, calle: ${street} ${number}.
     Muchas Gracias
     `;
 

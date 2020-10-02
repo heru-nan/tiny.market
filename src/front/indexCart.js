@@ -3,6 +3,7 @@ import Storage from "./Storage";
 import "../../public/cart/cart.css";
 import "../../public/cart/styles.css";
 import "../../public/cart/modal.css";
+import "../../public/cart/pbutton.css";
 
 let itemButtons = [];
 let deleteButtons = [];
@@ -18,10 +19,17 @@ let lastModal = document.querySelector("#lastModal");
 let payButton = document.querySelector("#pay");
 let cart = [];
 
+document.querySelector("#nav_title").addEventListener("click", () => {
+  location.href = "/";
+});
+
 class Ui {
   displayProducts(cart) {
     let result = `
+    <div class="header" id ="header">
       <h2>Shopping Cart</h2>
+      <button id="clean_cart" class="clean_button button1">Clean Cart</button>
+      </div>
     `;
     let cnt = 0;
     let totalItems = cart.length;
@@ -42,12 +50,13 @@ class Ui {
                         <p id="description" class="description">Thanks for<br /> cho-cho-choosing me!</p>
                   </div>
                 <span class="price" id="price">$${price}</span>
-
-                  <button id="item_button_delete" class="delete_button" data-id=${id}>delete</button>
                   <div class="item__content_actions">
-                    <button id="item_button" data-id=${id} name="decrement" >-1</button>
+                  <div>
+                    <button class="item_button button1" id="item_button" data-id=${id} name="decrement" >-1</button>
                     <span id="item_amount" class="amount" data-id=${id}>${amount}</span>
-                    <button id="item_button" data-id=${id} name="increment">+1</button>
+                    <button class="item_button button1" id="item_button" data-id=${id} name="increment">+1</button>
+                    </div>
+                    <button id="item_button_delete" class="delete_button button1" data-id=${id}>delete</button>
                   </div>
                 </div>
       </div>
@@ -124,7 +133,8 @@ class Ui {
     Ui.displayResumen(cart);
   }
 
-  clean() {
+  clean(flag = false) {
+    if (flag) location.reload();
     localStorage.removeItem("cart");
   }
 
@@ -149,6 +159,10 @@ class Ui {
       } else {
         item.addEventListener("click", this.decrement);
       }
+    });
+
+    document.querySelector("#clean_cart").addEventListener("click", () => {
+      if (confirm(`_____confirm clean cart`)) this.clean(true);
     });
 
     payButton.addEventListener("click", this.showModal);

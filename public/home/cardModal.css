@@ -1,4 +1,6 @@
 .overlay__container {
+  z-index: 20;
+  position: relative;
   border-radius: 2px;
   margin: 0 auto;
   margin-top: 40px;
@@ -11,6 +13,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 16px;
+}
+
+.box1 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+}
+
+.close-x {
+  stroke: black;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+@media screen and (max-width: 600px) {
+  .overlay__container {
+    max-width: 300px;
+  }
 }
 
 .overlay__container h4 {
@@ -30,6 +55,7 @@
 }
 
 .overlay {
+  z-index: 20;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -55,4 +81,9 @@
 .price {
   font-size: large;
   font-weight: bold;
+}
+
+.delete_a {
+  text-decoration: none;
+  color: black;
 }
